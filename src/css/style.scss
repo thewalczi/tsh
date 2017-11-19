@@ -1,0 +1,215 @@
+//variables
+
+$radius: 5px;
+
+//mixins
+
+@mixin radius {
+	border-radius: 5px;
+}
+
+@mixin shadow($values) {
+	-webkit-box-shadow: $values;
+  	-moz-box-shadow: $values; 
+  	box-shadow: $values;
+}
+
+@mixin grad($top, $bottom) {
+	background: $top;
+  	background: -webkit-linear-gradient(top, $top, $bottom);
+  	background: -moz-linear-gradient(top, $top, $bottom);
+  	background: -o-linear-gradient(top, $top, $bottom);
+  	background: linear-gradient(to bottom, $top, $bottom);
+}
+
+@mixin border-box() {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+//styles
+
+html, body{
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: 0;
+	padding: 0;
+	background: url('../img/bg-tile.jpg');
+}
+
+#page-wrapper {
+	padding: 7px 7px 9px;
+	max-width: 980px;
+	background: rgba(0, 0, 0, 0.05);
+	margin: 70px auto 0;
+	border-radius: 7px;
+
+	#page-content {
+		width: 100%;
+		min-height: 400px;
+		background: #fdfdfd;
+		@include radius;
+		@include shadow(0 0 4px rgba(0, 0, 0, 0.3));
+		padding: 20px;
+		@include border-box;
+
+		header {
+			border-bottom: 1px solid #e0e0e0;
+			text-align: center;
+			@include border-box;
+			padding-bottom: 20px;
+
+			h1 {
+				color: #2288b7;
+				line-height: 1em;
+				font-size: 60px;
+				font-weight: 300;
+				margin: 0;
+			}
+
+			p {
+				color: #3b3b3b;
+				font-size: 17px;
+				font-weight: normal;
+				margin: 10px 0;
+
+			}
+		}
+		form {
+			text-align: center;
+
+			* {
+				@include border-box;;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 5px;
+				border-radius: $radius;
+				-webkit-border-radius: $radius;
+				-moz-border-radius: $radius;
+			}
+			input {
+				font-size: 12px;
+
+				&[type="text"] {
+					border: 1px solid #d1d1d1;
+					padding: 7px 8px;
+					max-width: 370px;
+					width: 100%;
+
+					&::-webkit-input-placeholder {
+						color: #999999;
+					}
+					&::-moz-input-placeholder {
+						color: #999999;
+					}
+					&::-ms-input-placeholder {
+						color: #999999;
+					}
+				}
+
+				&[type="number"] {
+					font-size: 11px;
+					border: 1px solid #9c9c9c;
+					padding: 2px 3px 2px 8px;
+					max-width: 150px;
+					width: 100%;
+					margin: 6px 0;
+
+					&::-webkit-input-placeholder {
+						color: #000000;
+					}
+					&::-moz-input-placeholder {
+						color: #000000;
+					}
+					&::-ms-input-placeholder {
+						color: #000000;
+					}
+				}
+				
+
+				&[type="button"] {
+					@include grad(#f2f2f2, #c4c4c4);
+					font-weight: 700;
+					padding: 8px 20px;
+					border: none;
+					color: #494949
+				}
+
+				&[type="submit"] {
+					@include grad(#6ba1f3, #2077f0);
+					font-size: 12px;
+					font-weight: 700;
+					padding: 8px 20px;
+					border: none;
+					color: #fdfdfd
+				}
+			}
+			div {
+				background: #eaeced;
+				padding: 0 5px 0 6px;
+			}
+		}
+		#content {
+			@include grad(#d6d6d6, #cbcbcb);
+			padding: 1px;
+			@include border-box;
+			border-radius: $radius;
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				border-radius: $radius;
+				// overflow: hidden;
+				// overflow-x: auto;
+				@include shadow(0 0 1px rgba(0, 0, 0, 0.05));
+				text-align: center;
+				background: #fdfdfd;
+
+				th {
+					@include grad(#f1f2f2, #e8e9ea);
+					color: #666666;
+					font-size: 12px;
+					height: 60px;
+					@include border-box;
+					border-bottom: 1px solid #cccfd1;
+				}
+				td {
+					
+					height: 50px;
+					border: 1px solid #e0e0e0;
+					@include border-box;
+					font-size: 12px;
+					color: #555555;
+				}
+
+				tr > :first-child {
+					text-align: left;
+					padding: 0 28px;
+				}
+
+				tr.even-row {
+					@include grad(#f8f8f8, #f6f6f6);
+				}
+			}
+			.rating span {
+				width: 25px;
+				height: 25px;
+				line-height: 25px;
+				display: inline-block;
+				vertical-align: middle;
+				border: 1px solid #767676;
+				border-radius: 50%;
+				font-size: 15px;
+				font-weight: 700;
+				margin: 2px;
+				@include grad(#ffffff, #dadcdc);
+
+				&.rated {
+					@include grad(#63c0ea, #4c95dc);
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
