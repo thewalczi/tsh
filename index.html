@@ -7,10 +7,30 @@
 	<title>TSH task</title>
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i" rel="stylesheet">
 	<link rel="stylesheet" href="src/css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="src/script/script.js"></script>
 </head>
 <body>
+
+	<div id="shadow" class="close"></div>
+
+	<div id="modal-wrapper">
+		<div id="modal-inner">
+			<button class="close">x</button>
+			<h4>SUPPLIER</h3>
+			<div id="modal-ref">
+				<h6>Reference:</h6>
+				<p></p>
+			</div>
+			<div id="modal-value">
+				<h6>Value:</h6>
+				<p></p>
+			</div>
+			<div id="modal-rating">
+				<h6>Rating:</h6>
+				<p></p>
+			</div>				
+		</div>
+	</div>
+
 	<div id="page-wrapper">
 		<div id="page-content">
 			<header>
@@ -20,23 +40,35 @@
 
 			<div id="search">
 				<form>
-					<input placeholder="Select suppliers" type="text">
-					<div><input placeholder="Select pound rating" type="number"></div>
-					<input type="button" value="Reset">
-					<input type="submit" value="Search">
+					<input id="supplier-search" placeholder="Select suppliers" type="text"/>
+					<div id="rating-search"><input placeholder="Select pound rating" type="number" step="1" min="0" max="5"/></div>
+					<div>
+						<input id="reset-btn" type="reset" value="Reset"/>
+						<input id="search-btn" type="submit" value="Search"/>
+					</div>
 				</form>
 			</div>
 			<div id="content">
 				<table>
-					<tr>
-						<th>Supplier</th>
-						<th>Pound Rating</th>
-						<th>Reference</th>
-						<th>Value</th>
-					</tr>
+					<thead>
+						<tr>
+							<th class="supplier">Supplier</th>
+							<th class="rating">Pound Rating</th>
+							<th class="ref">Reference</th>
+							<th class="value">Value</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
 				</table>
+			</div>
+			<div id="pagination">
+				<ul></ul>
 			</div>
 		</div>
 	</div>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="src/script/script.js"></script>
 </body>
 </html>
