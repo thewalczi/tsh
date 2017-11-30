@@ -1,5 +1,7 @@
 $(function() {
 
+// FUNCTIONS
+
 
 function pagination(data) {
 
@@ -154,6 +156,9 @@ $.ajax({
                 }
             })
         });
+    },
+    error: function(data) {
+        // alert('error');
     }
 });
 

@@ -21,7 +21,7 @@ $phone: "(max-width: 550px)";
 }
 
 @mixin grad($top, $bottom) {
-	background: $top;
+	background: $bottom;
   	background: -webkit-linear-gradient(top, $top, $bottom);
   	background: -moz-linear-gradient(top, $top, $bottom);
   	background: -o-linear-gradient(top, $top, $bottom);
@@ -50,11 +50,11 @@ body{
 	padding-top: 70px;
 
 	@media #{$tablet} {
-		padding-top: 50px;
+		padding-top: 30px;
 	}
 
 	@media #{$phone} {
-		padding-top: 30px;
+		padding-top: 0px;
 	}
 }
 
@@ -245,10 +245,12 @@ body{
 
 					&.value {
 						width: 11.5%;
+						min-width: 50px;
 					}
 
 					&.ref {
 						width: 11.5%;
+						min-width: 50px;
 					}
 
 					&.rating {
@@ -402,7 +404,7 @@ body{
 		div {
 			display: inline-block;
 			vertical-align: top;
-			width: 50%;
+			width: 49.5%;
 			text-align: left;
 			padding: 15px;
 			margin-bottom: 10px;
